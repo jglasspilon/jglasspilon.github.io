@@ -15,7 +15,7 @@ timezone:
 # ↓ --------------------------
 
 title: Julian Glass-Pilon
-titel_formatted: Julian<br>Glass-Pilon
+title_formatted: Julian<br>Glass-Pilon
 tagline: Senior Game Developer<br> UI Expert • Teacher • Gamer
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -35,6 +35,18 @@ social:
   links:
     - https://github.com/jglasspilon
     - www.linkedin.com/in/julian-glass-pilon
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+  professional-case-studies:
+    output: true
+    permalink: /professional-case-studies/:name/
+
+assets:
+  css:
+    - assets/css/custom.css
 
 favicon: true
 
@@ -123,14 +135,6 @@ comments:
     lang: # optional, default to the value of `site.lang`
     reactions_enabled: # optional, default to the value of `1`
 
-# Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
-assets:
-  self_host:
-    enabled: # boolean, keep empty means false
-    # specify the Jekyll environment, empty means both
-    # only works if `assets.self_host.enabled` is 'true'
-    env: # [development | production]
-
 pwa:
   enabled: false # The option for PWA feature (installable)
   cache:
@@ -145,6 +149,8 @@ pwa:
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
+  parse_block_html: true
+  html_to_native: true
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
   syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
@@ -155,11 +161,6 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
-
-collections:
-  tabs:
-    output: true
-    sort_by: order
 
 defaults:
   - scope:
