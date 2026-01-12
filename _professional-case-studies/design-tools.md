@@ -5,4 +5,5 @@ description: "A collection of Unity UI systems designed to improve iteration spe
 thumbnail: "/assets/img/work/design-tools-thumbnail.gif"
 permalink: /professional-case-studies/design-tools/
 order: 1
+parent: professional-case-studies
 ---

@@ -5,4 +5,5 @@ description: "Broadcast-friendly Unreal framework designed to streamline the con
 thumbnail: "/assets/img/work/unreal-framework-thumbnail.png"
 permalink: /professional-case-studies/unreal-framework/
 order: 3
+parent: professional-case-studies
 ---

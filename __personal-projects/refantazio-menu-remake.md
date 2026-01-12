@@ -5,4 +5,5 @@ description: "Remake of the award winning Metaphor Refantazio Menu and some of i
 thumbnail: "/assets/img/projects/refantazio-menu-remake.png"
 permalink: /personal-projects/refantazio-menu-remake/
 order: 1
+parent: personal-projects
 ---

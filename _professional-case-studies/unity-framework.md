@@ -5,4 +5,5 @@ description: "Broadcast-friendly Unity framework designed to streamline the cont
 thumbnail: "/assets/img/work/unity-framework-thumbnail.gif"
 permalink: /professional-case-studies/unity-framework/
 order: 2
+parent: professional-case-studies
 ---
