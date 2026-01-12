@@ -21,8 +21,8 @@
 
 .badge-wrapper {
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center; /* vertical centering */
+  justify-content: center;
+  align-items: center;
 }
 
 .portfolio-grid {
@@ -52,8 +52,8 @@
 .portfolio-thumb {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; 
-  overflow: hidden; 
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
 .portfolio-thumb img {
@@ -68,6 +68,109 @@
   padding: 1rem;
 }
 
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+details[open] summary {
+  color: #0078d4;
+}
+
+/* ---------- SUMMARY LAYOUT + CUSTOM ARROW ---------- */
+
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  padding-left: 2.1rem; 
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::marker {
+  content: "";
+}
+
+summary::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  font-size: 1.5em;
+}
+
+details[open] > summary::before {
+  content: "▾";
+}
+
+summary img.details-image {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.details-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* ---------- SLIDER ---------- */
+
+.details-image {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.slider {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.slider .arrow {
+  background: none;
+  border: none;
+  font-size: 4rem;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+}
+
+.slider-viewport {
+  display: flex;
+  align-items: center; 
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.slider-track section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 100%;
+  max-width: 100%;
+  padding: 0px 5px 0px 0px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+/* --------------responsivity tweaks---------------- */
 @media (max-width: 992px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
