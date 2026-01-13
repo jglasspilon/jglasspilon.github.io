@@ -138,6 +138,10 @@ summary img.details-image {
   position: relative;
 }
 
+details .details-title{
+    font-size: 135%;
+}
+
 details .details-body {
   overflow: hidden;
   max-height: 0;
