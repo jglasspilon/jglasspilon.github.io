@@ -35,11 +35,11 @@
 <meta property="og:url" content="http://localhost:4000/professional-case-studies/design-tools/" />
 <meta property="og:site_name" content="Julian Glass-Pilon" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-01-13T14:43:12-05:00" />
+<meta property="article:published_time" content="2026-01-13T15:34:51-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Design &amp; Integration Tools" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-13T14:43:12-05:00","datePublished":"2026-01-13T14:43:12-05:00","description":"A collection of Unity UI systems designed to improve iteration speed, accessibility, and design fidelity through close collaboration with artists and UX designers.","headline":"Design &amp; Integration Tools","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/professional-case-studies/design-tools/"},"url":"http://localhost:4000/professional-case-studies/design-tools/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-13T15:34:51-05:00","datePublished":"2026-01-13T15:34:51-05:00","description":"A collection of Unity UI systems designed to improve iteration speed, accessibility, and design fidelity through close collaboration with artists and UX designers.","headline":"Design &amp; Integration Tools","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/professional-case-studies/design-tools/"},"url":"http://localhost:4000/professional-case-studies/design-tools/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1035,7 +1035,7 @@
   <details style="padding-left: 0.75em; padding-right: 0.75em">
     <summary class="details-content">
       <div class="summary-text">
-        "No-Code Data Binder System"<br>
+        <strong>No-Code Data Binder System</strong><br>
         A reusable MVVM-based (Model-View-ViewModel) UI binding framework that eliminated hard-coded UI logic and reduced iteration time from days to hours.
       </div>
 
@@ -1044,8 +1044,8 @@
         <span class="zoom-icon fa fa-search"></span>
       </div>
     </summary>
-    <hr />
-    <div>
+    <div class="details-body">
+      <hr />
       <div class="slider">
         <button class="arrow left">‹</button>
 
@@ -1102,8 +1102,8 @@
 
         <button class="arrow right">›</button>
       </div>
+      <hr />
     </div>
-    <hr />
   </details>
 </div>
 
@@ -1112,7 +1112,7 @@
   <details style="padding-left: 0.75em; padding-right: 0.75em">
     <summary class="details-content">
       <div class="summary-text">
-        "Image Blend Component & Shader"<br>
+        <strong>Image Blend Component & Shader</strong><br>
         A custom Unity Image component and HLSL shader that brings standard creative-tool blend modes into UGUI, allowing designers to implement complex, dynamic image blending without visual compromises.
       </div>
 
@@ -1121,8 +1121,8 @@
         <span class="zoom-icon fa fa-search"></span>
       </div>
     </summary>
-    <hr />
-    <div>
+    <div class="details-body">
+      <hr />
       <div class="slider">
         <button class="arrow left">‹</button>
 
@@ -1176,8 +1176,8 @@
 
         <button class="arrow right">›</button>
       </div>
+      <hr />
     </div>
-    <hr />
   </details>
 </div>
 
@@ -1185,7 +1185,7 @@
   <details style="padding-left: 0.75em; padding-right: 0.75em">
     <summary class="details-content">
       <div class="summary-text">
-        "Event-Driven Contrast Ratio Calculator Component"<br>
+        <strong>Event-Driven Contrast Ratio Calculator Component</strong><br>
         An event-driven Unity component that automatically selects the most readable text color in dynamic backgrounds by calculating contrast ratios at runtime automating text accessibility and standardizing its approach.
       </div>
 
@@ -1194,8 +1194,8 @@
         <span class="zoom-icon fa fa-search"></span>
       </div>
     </summary>
-    <hr />
-    <div>
+    <div class="details-body">
+      <hr />
       <div class="slider">
         <button class="arrow left">‹</button>
 
@@ -1249,10 +1249,11 @@
 
         <button class="arrow right">›</button>
       </div>
+      <hr />
     </div>
-    <hr />
   </details>
 </div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -1286,11 +1287,88 @@
     const allDetails = document.querySelectorAll(".portfolio-card details");
 
     allDetails.forEach(details => {
-      details.addEventListener("toggle", () => {
-        if (details.open) {
-          allDetails.forEach(other => {
-            if (other !== details) other.open = false;
+      const summary = details.querySelector("summary");
+      const body = details.querySelector(".details-body");
+
+      if (!summary || !body) return;
+
+      // Initialize
+      if (!details.open) {
+        body.style.maxHeight = "0px";
+      } else {
+        body.style.maxHeight = body.scrollHeight + "px";
+      }
+
+      summary.addEventListener("click", event => {
+        event.preventDefault(); // stop native toggle
+
+        const isOpening = !details.open;
+
+        // CLOSE ALL OTHER DETAILS WITH ANIMATION
+        allDetails.forEach(other => {
+          if (other !== details && other.open) {
+            const otherBody = other.querySelector(".details-body");
+
+            // Animate close
+            otherBody.style.maxHeight = otherBody.scrollHeight + "px";
+            requestAnimationFrame(() => {
+              otherBody.style.maxHeight = "0px";
+            });
+
+            // Remove open AFTER animation
+            otherBody.addEventListener(
+              "transitionend",
+              () => {
+                other.open = false;
+              },
+              { once: true }
+            );
+          }
+        });
+
+        if (isOpening) {
+          details.open = true;
+
+          const fullBodyHeight = body.scrollHeight;
+
+          // Start expansion animation
+          body.style.maxHeight = fullBodyHeight + "px";
+
+          // Scroll partway through the animation so geometry is closer to "final"
+          const transitionDurationMs = 350; // matches your 0.35s CSS
+          const scrollDelay = transitionDurationMs * 0.4; // ~40% into the animation
+
+          setTimeout(() => {
+            const rect = details.getBoundingClientRect();
+            const absoluteTop = rect.top + window.scrollY;
+
+            // Use current (partially expanded) height + remaining body height
+            const effectiveHeight = rect.height; // summary + whatever body has expanded so far
+
+            const targetScrollTop =
+              absoluteTop - window.innerHeight / 2 + effectiveHeight / 2;
+
+            window.scrollTo({
+              top: targetScrollTop,
+              behavior: "smooth"
+            });
+          }, scrollDelay);
+        }
+
+        else {
+          // CLOSE THIS ONE
+          body.style.maxHeight = body.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            body.style.maxHeight = "0px";
           });
+
+          body.addEventListener(
+            "transitionend",
+            () => {
+              details.open = false;
+            },
+            { once: true }
+          );
         }
       });
     });

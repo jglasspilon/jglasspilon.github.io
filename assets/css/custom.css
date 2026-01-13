@@ -78,6 +78,21 @@ details[open] summary {
   color: #0078d4;
 }
 
+details .details-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease;
+}
+
+details[open] .details-body {
+  max-height: 2000px; /* large enough to fit content */
+  opacity: 1;
+}
+
+
 /* ---------- SUMMARY LAYOUT + CUSTOM ARROW ---------- */
 
 summary {
@@ -98,15 +113,16 @@ summary::marker {
 }
 
 summary::before {
-  content: "▸";
+  content: "▸"; 
   position: absolute;
   left: 0;
   top: 0.5em;
   font-size: 1.5em;
+  transition: transform 0.3s ease; 
 }
 
 details[open] > summary::before {
-  content: "▾";
+  transform: rotate(90deg);
 }
 
 summary img.details-image {
@@ -122,6 +138,12 @@ summary img.details-image {
   position: relative;
 }
 
+details .details-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+
 .details-image-wrapper {
   position: relative;
   display: inline-block;
@@ -135,7 +157,6 @@ summary img.details-image {
   color: #FFF;
   pointer-events: none; 
 }
-
 
 /* ---------- SLIDER ---------- */
 
