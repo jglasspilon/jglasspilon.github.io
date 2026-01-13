@@ -2,7 +2,7 @@
 title: "Design & Integration Tools"
 layout: page
 description: "A collection of Unity UI systems designed to improve iteration speed, accessibility, and design fidelity through close collaboration with artists and UX designers."
-thumbnail: "/assets/img/work/design-tools-thumbnail.gif"
+thumbnail: "/assets/img/work/design-tools/DataBinders.gif"
 permalink: /professional-case-studies/design-tools/
 order: 1
 parent: professional-case-studies
@@ -130,6 +130,17 @@ parent: professional-case-studies
   });
 </script>
 
+<script>
+  // Run as early as possible
+  document.addEventListener("readystatechange", function () {
+    if (document.readyState === "interactive") {
+      document.querySelectorAll('img.no-lightbox').forEach(img => {
+        const link = img.closest('a.popup');
+        if (link) link.replaceWith(img);
+      });
+    }
+  });
+</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
