@@ -37,6 +37,7 @@
   flex-direction: column;
   background: var(--card-bg);
   border-radius: 8px;
+  margin-bottom: 1rem;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
