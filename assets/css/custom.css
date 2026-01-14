@@ -156,10 +156,11 @@ details .details-body {
 .zoom-icon {
   position: absolute;
   bottom: 12px;
-  right: 4px;
-  font-size: 0.5rem;
+  right: 2px;
+  font-size: 1rem;
   color: #FFF;
-  pointer-events: none; 
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 /* ---------- SLIDER ---------- */
