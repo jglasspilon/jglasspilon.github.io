@@ -1,9 +1,275 @@
 ---
-title: "Unreal Broadcast Framework"
+title: "Data-Driven AR&VR Graphic Framework for Broadcast"
 layout: page
 description: "Broadcast-friendly Unreal framework designed to streamline the control and creation of data driven graphics for augmented reality and virtual reality with protocol agnostic data handling."
 thumbnail: "/assets/img/work/unreal-framework/tsn.gif"
 permalink: /professional-case-studies/unreal-framework/
-order: 3
+order: 2
 parent: professional-case-studies
 ---
+
+{% include accordion.js %}
+{% include badge-handler.js %}
+
+<div class="badges" style="padding-bottom: 20px">
+  <div class="badge-wrapper" style="background: #0E1128">
+    <img src="https://img.shields.io/badge/Unreal-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" alt="Unreal" class="no-lightbox">
+  </div>
+  <div class="badge-wrapper" style="background: #1A6DFF">
+    <img src="https://img.shields.io/badge/Blueprints-1A6DFF?style=for-the-badge" alt="C#" class="no-lightbox">
+  </div>
+  <div class="badge-wrapper" style="background: #000000">
+    <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON" class="no-lightbox">
+  </div>
+  <div class="badge-wrapper" style="background: #005571">
+    <img src="https://img.shields.io/badge/HTTP-005571?style=for-the-badge" alt="HTTP" class="no-lightbox">
+  </div>
+</div>
+
+<p><strong>Role</strong>: Framework Architect<br /><strong>Company</strong>: Astucemedia</p>
+
+<hr />
+
+<p>
+  A scalable Unreal Engine blueprint framework for managing dynamic broadcast graphics, real-time data ingestion, and runtime UI binding. Designed to support multiple data sources, rapid content switching, and designer-friendly extensibility while keeping systems decoupled, and easily maintainable.
+</p>
+
+<h3>Architecture Philosophy</h3>
+<p>
+  This framework was designed around <strong>separation of concerns, scalability, and non-invasive extensibility</strong>.
+  The goal was to allow teams to introduce new content types, data sources, and UI bindings without rewriting existing systems or introducing brittle dependencies.
+</p>
+
+<p>
+  The systems below demonstrate how these principles were applied across content management, data ingestion, and UI binding. <span class="emphassis"><strong>Expand a card</strong></span> below to explore the design challenge, technical approach, and resulting impact.
+</p>
+
+<div class="portfolio-card">
+  <details style="padding-left: 0.75em; padding-right: 0.75em">
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Connection & Data Ingestion Pipeline</span><br>
+        A pluggable data ingestion layer supporting protocol agnostic communication and unified data access, abstracting out any protocol specific logic while providing a single source of truth for other systems to hook into.
+      </div>
+
+      <div class="details-image-wrapper">
+        <img src="/assets/img/work/unreal-framework/framework-overview.png" alt="Connection & Data Ingestion Pipeline" class="details-image">
+        <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <hr />
+      <div class="slider">
+        <button class="arrow left">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <section>
+              <h2>Outcome</h2>
+              <p>
+                Enabled the framework to ingest, manage, and distribute data from multiple external sources without hard dependencies between systems.
+              </p>
+              <ul>
+                <li><strong>Before ➙</strong> data source changes required modifications across multiple systems.</li>
+                <li><strong>After ➙</strong> ability to add new data sources with zero impact on consumers.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>Designed a Connection Manager to orchestrate data source lifecycles.</li>
+                <li>Implemented connection settings as extensible, type-driven objects.</li>
+                <li>Defined a common connection interface to support HTTP, MQTT, file readers, and future sources.</li>
+                <li>Centralized parsed data storage within an in-memory Data Center.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Challenge</h2>
+              <p>
+                Supporting multiple data sources often leads to fragmented logic, duplicated parsing code, and rigid pipelines that are difficult to extend or test.
+              </p>
+            </section>
+            <section>
+              <h2>Solution</h2>
+              <p>
+                Abstract all data ingestion behind a common connection interface and route parsed data into a centralized Data Center. This allows content and UI systems to remain agnostic of how data is retrieved.
+              </p>
+            </section>
+            <section>
+              <h2>Key Learnings</h2>
+              <ul>
+                <li>Decoupling data acquisition from data consumption improves system longevity.</li>
+                <li>Factory-driven creation simplifies onboarding new connection types.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <button class="arrow right">›</button>
+      </div>
+      <hr />
+    </div>
+  </details>
+</div>
+
+
+<div class="portfolio-card">
+  <details style="padding-left: 0.75em; padding-right: 0.75em">
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Content Management Pipeline</span><br>
+        A modular system for routing, activating, and updating runtime content across multiple zones using a centralized manager for singular external hooking, eliminating code duplication, and vastly improving code maintainability.
+      </div>
+
+      <div class="details-image-wrapper">
+        <img src="/assets/img/work/unreal-framework/content-management-pipeline.png" alt="Content Management Pipeline" class="details-image">
+        <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <hr />
+      <div class="slider">
+        <button class="arrow left">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <section>
+              <h2>Outcome</h2>
+              <p>
+                Enabled dynamic content switching and updates across multiple runtime zones using a single orchestration layer, reducing coupling between content logic and presentation.
+              </p>
+              <ul>
+                <li><strong>Before ➙</strong> content logic tightly coupled to specific UI or world actors, leading to duplication, maintainability issues and errors across transitions.</li>
+                <li><strong>After ➙</strong> clean separation between content routing, state management, and rendering, eliminating code duplication, and vastly improving code maintainability.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>Designed a centralized Content Manager responsible for routing content updates via JSON payloads.</li>
+                <li>Defined Content Zones as independently managed runtime areas.</li>
+                <li>Created an abstract Content base class with a predictable lifecycle (Prepare, Update, Cleanup).</li>
+                <li>Implemented enum-based content and zone identification for safety and clarity.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Challenge</h2>
+              <p>
+                Managing multiple dynamic content areas often leads to tightly coupled logic, duplicated update paths, and brittle state management. As content types grow, systems become harder to reason about and modify safely.
+              </p>
+            </section>
+            <section>
+              <h2>Solution</h2>
+              <p>
+                Introduce a Content Manager that routes JSON-driven commands to individual Content Zones. Each zone owns its active content state and manages transitions internally, while content implementations remain unaware of higher-level orchestration.
+              </p>
+            </section>
+            <section>
+              <h2>Key Learnings</h2>
+              <ul>
+                <li>Explicit ownership of states and their transitions dramatically simplifies content lifecycle management</li>
+                <li>Abstracting out transition logic from content allows for faster graphic iteration without worry of lifecycle management</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <button class="arrow right">›</button>
+      </div>
+      <hr />
+    </div>
+  </details>
+</div>
+
+<div class="portfolio-card">
+  <details style="padding-left: 0.75em; padding-right: 0.75em">
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Event-Driven Data Binding</span><br>
+        A subscription-based data binding system that keeps runtime UI automatically in sync with live data using plug-and-play components that support fast, safe design iteration.
+      </div>
+
+      <div class="details-image-wrapper">
+        <img src="/assets/img/work/unreal-framework/data-management-pipeline.png" alt="Event-Driven Data Binding" class="details-image">
+        <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <hr />
+      <div class="slider">
+        <button class="arrow left">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <section>
+              <h2>Outcome</h2>
+              <p>
+                Allowed content and UI elements to react automatically to data changes without polling or tight coupling to data sources. The component based approach also allowed for fast iteration when creating or modyfing graphics.
+              </p>
+              <ul>
+                <li><strong>Before ➙</strong> frequent polling and duplicated update logic leading to bloated code base.</li>
+                <li><strong>After ➙</strong> efficient, reactive updates, delivering measurable performance gains, reduced code duplication and bloat, and faster iteration cycles.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>Designed a Data Bindable interface for subscription-based updates.</li>
+                <li>Implemented an intuitive JSON parsable binding structure mapping to stored JSON data.</li>
+                <li>Integrated auto-update and manual update control for performance tuning.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Challenge</h2>
+              <p>
+                Keeping UI and content synchronized with frequently changing data often leads to inefficient polling or tightly coupled update logic. Binding data to UI also generally requires manual mapping of data which increases the code base as graphics and data grow.
+              </p>
+            </section>
+            <section>
+              <h2>Solution</h2>
+              <p>
+                Introduce an event-driven subscription model where binders register interest in specific data streams. The Data Center pushes updates only when relevant data changes. These data binders are developed as components giving designers freedom to iterate on their designs with easy plug-and-play access to runtime data.
+              </p>
+            </section>
+            <section>
+              <h2>Key Learnings</h2>
+              <ul>
+                <li>Event-driven architectures scale better under frequent updates.</li>
+                <li>Explicit subscriptions make data flow easier to reason about and debug.</li>
+                <li>Component based architecture gives more creative freedom upon integration increasing iteration speed.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <button class="arrow right">›</button>
+      </div>
+      <hr />
+    </div>
+  </details>
+</div>
+
+<hr />
+
+<h2>Deployed Projects using Framework</h2>
+<p>Below are a selection of projects launched and deployed to the client.</p>
+<p style="font-size:75%"><i>*All animated GIFs shown below are from publicly released projects and are the property of their respective owners. I claim no ownership or rights; they are displayed solely to demonstrate the results of my contributions as development & integration lead on these projects.</i></p>
+<div class="framework-projects-grid">
+  <div class="framework-projects-card">
+    <div class="section-info">
+      <h3><b>TSN Sports Betting Virtual Studio</b></h3>
+    </div>
+    <div class="portfolio-thumb no-lightbox">
+      <img src="../assets/img/work/unreal-framework/tsn.gif" alt="TSN Sports Betting Virtual Studio" class="no-lightbox">
+    </div>
+    <div class="portfolio-info">
+      <p>
+        <strong>Project Timeline</strong>: 1 year.<br />
+        <strong>My role</strong>: Development & Integrations Lead.<br />
+        <strong>Dev team size</strong>: <i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i><br />
+        <hr />
+        Data-driven sports betting virtual studio used by TSN across multiple sports since 2024. Graphics, playout and data-binding all seamlessly controlled and orchestrated by this framework.
+      </p>
+    </div>
+  </div>
+</div>
