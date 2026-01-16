@@ -74,7 +74,7 @@ parent: professional-case-studies
                 <li>Designed the code architecture for a component-based Data Binder system with a "No-code" requirement during implementation.</li>
                 <li>Determined and prioritized needed components with a focus on scalability.</li>
                 <li>Built modular, data-binder components for various unity UGUI components.</li>
-                <li>Built a single point of entry component for binding multiple data binder components to a single JSON payload exposed through a single, function call.</li>
+                <li>Built a single point of entry component for binding multiple data binder components to a single JSON payload exposed through a single function call.</li>
                 <li>Built a single point of entry component for generating data binder prefabs from JSON array data requiring a single function call upon implementation.</li>
               </ul>
             </section>
@@ -113,6 +113,78 @@ parent: professional-case-studies
   </details>
 </div>
 
+<div class="portfolio-card">
+  <details style="padding-left: 0.75em; padding-right: 0.75em">
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Event-Driven Contrast Ratio Calculator Component</span><br>
+        An event-driven Unity component that automatically selects the most readable text color in dynamic backgrounds by calculating contrast ratios at runtime automating text accessibility and standardizing its approach.
+      </div>
+
+      <div class="details-image-wrapper">
+        <img src="/assets/img/work/design-tools/contrast-ratio.gif" alt="Event-Driven Contrast Ratio Calculator Component" class="details-image">
+        <span class="zoom-icon fa-solid fa-magnifying-glass-plus"></span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <hr />
+      <div class="slider">
+        <button class="arrow left">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <section>
+              <h2>Outcome</h2>
+              <p>
+                Ensured consistent text readability and accessibility across dynamic color scenarios without manual color mapping or additional QA overhead.
+                <ul>
+                  <li><strong>Before ➙</strong> certain dynamic color combinations would be unaccounted for during design which led to reduced accessibility and readability.</li>
+                  <li><strong>After ➙</strong> designers no longer needed to manually map text/background color combinations, reducing design time and the risk of missed accessibility issues.</li>
+                </ul>
+            </section>
+            <section>
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>
+                  Designed and developed a clean, easy to implement component that could calculate the contrast ratio between the color of a background component and 2 text colors and pick the one that was most visible.
+                </li>
+                <li>
+                  Designed the component to integrate non-invasively, requiring minimal changes to existing codebases.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Challenge</h2>
+              <p>
+                Accessibility is a very important aspect of strong UX and text readability is a top concern. When in a scenario where text background is dynamic in nature, it can be very difficult to successfully curate or maintain a mapping of text colors to background colors. If the scenario is dynamic enough that any color can be present, this becomes near impossible and many edge cases can lead to less accessible UI, while also leading to much larger code bases to handle all of these scenarios.
+              </p>
+            </section>
+            <section>
+              <h2>Solution</h2>
+              <p>
+                Create a component that calculates contrast ratios in line with WCAG accessibility guidelines between a dynamic background color and two possible text colors (light and dark variants), automatically selecting the most readable option. Since this component needs to be added to an existing code base, its implementation needs to be as non-invasive as possible so an event-driven approach is taken to reduce implementation overhead and offer implementation flexibility.
+              </p>
+            </section>
+            <section>
+              <h2>Key Learnings</h2>
+              <ul>
+                <li>
+                  By automating the choice of text color to be used in a dynamic color scenario to ensure accessibility always met or surpassed web content accessibility guidelines, the resulting UI was more consistently readable across various user bases (across the color blindness spectrum).
+                </li>
+                <li>
+                  This also reduced the load on the designers who no longer needed to worry about creating various color combinations for each foreseeable situation.
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <button class="arrow right">›</button>
+      </div>
+      <hr />
+    </div>
+  </details>
+</div>
 
 <div class="portfolio-card">
   <details style="padding-left: 0.75em; padding-right: 0.75em">
@@ -174,79 +246,6 @@ parent: professional-case-studies
                 </li>
                 <li>
                   <strong>Happy designer == Happy developer</strong>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </div>
-
-        <button class="arrow right">›</button>
-      </div>
-      <hr />
-    </div>
-  </details>
-</div>
-
-<div class="portfolio-card">
-  <details style="padding-left: 0.75em; padding-right: 0.75em">
-    <summary class="details-content">
-      <div class="summary-text">
-        <span class="details-title">Event-Driven Contrast Ratio Calculator Component</span><br>
-        An event-driven Unity component that automatically selects the most readable text color in dynamic backgrounds by calculating contrast ratios at runtime automating text accessibility and standardizing its approach.
-      </div>
-
-      <div class="details-image-wrapper">
-        <img src="/assets/img/work/design-tools/contrast-ratio.gif" alt="Event-Driven Contrast Ratio Calculator Component" class="details-image">
-        <span class="zoom-icon fa-solid fa-magnifying-glass-plus"></span>
-      </div>
-    </summary>
-    <div class="details-body">
-      <hr />
-      <div class="slider">
-        <button class="arrow left">‹</button>
-
-        <div class="slider-viewport">
-          <div class="slider-track">
-            <section>
-              <h2>Outcome</h2>
-              <p>
-                Ensured consistent text readability and accessibility across dynamic color scenarios without manual color mapping or additional QA overhead.
-                <ul>
-                  <li><strong>Before ➙</strong> certain dynamic color combinations would be unaccounted for during design which led to reduced accessibility and readability.</li>
-                  <li><strong>After ➙</strong> designers no longer needed to manually map text/background color combinations, reducing design time and the risk of missed accessibility issues.</li>
-                </ul>
-            </section>
-            <section>
-              <h2>Responsibilities</h2>
-              <ul>
-                <li>
-                  Designed and developed a clean, easy to implement component that could calculate the contrast ratio between the color of a background component and 2 text colors and pick the one that was most visible.
-                </li>
-                <li>
-                  Designed the component to integrate non-invasively, requiring minimal changes to existing codebases.
-                </li>
-              </ul>
-            </section>
-            <section>
-              <h2>Challenge</h2>
-              <p>
-                Accessibility is a very important aspect of strong UX and text readability is a top concern in this. When in a scenario where text background is dynamic in nature, it can be very difficult to successfully curate or maintain a mapping of text colors to background colors. If the scenario is dynamic enough that any color can be present, this becomes near impossible and many edge cases can lead to less accessible UI, while also leading to much larger code bases to handle all of these scenarios.
-              </p>
-            </section>
-            <section>
-              <h2>Solution</h2>
-              <p>
-                Create a component that calculates contrast ratios in line with WCAG accessibility guidelines between a dynamic background color and two possible text colors (light and dark variants), automatically selecting the most readable option. Since this component needs to be added to an existing code base, its implementation needs to be as non-invasive as possible so an event-driven approach is taken to reduce implementation overhead and offer implementation flexibility.
-              </p>
-            </section>
-            <section>
-              <h2>Key Learnings</h2>
-              <ul>
-                <li>
-                  By automating the choice of text color to be used in a dynamic color scenario to ensure accessibility always met or surpassed web content accessibility guidelines, the resulting UI was more consistently readable across various user bases (across the color blindness spectrum).
-                </li>
-                <li>
-                  This also reduced the load on the designers who no longer needed to worry about creating various color combinations for each foreseeable situation.
                 </li>
               </ul>
             </section>

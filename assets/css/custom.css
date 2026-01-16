@@ -177,6 +177,7 @@ details .details-body {
   font-size: 1rem;
   color: #FFF;
   opacity: 0.35;
+  pointer-events: none;
 }
 
 .zoom-icon-dark {
@@ -186,6 +187,7 @@ details .details-body {
   font-size: 1rem;
   color: #000;
   opacity: 0.35;
+  pointer-events: none;
 }
 
 /* ---------- SLIDER ---------- */
