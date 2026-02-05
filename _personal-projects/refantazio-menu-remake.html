@@ -1,13 +1,15 @@
 ---
 title: "Metaphor Refantazio UI Recreation"
 layout: page
-description: "Recreation of the award winning Metaphor Refantazio's UI & Menu. Built in Unity. <hr/><i>In early stages of development</i>."
+description: "Recreation of the award winning Metaphor Refantazio's UI & Menu. Built in Unity.
+<hr /><i>In early stages of development</i>."
 thumbnail: "/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png"
 permalink: /personal-projects/refantazio-menu-remake/
 order: 1
 parent: personal-projects
 ---
 
+{% include accordion.js %}
 {% include badge-handler.js %}
 
 <div class="badges">
@@ -28,30 +30,93 @@ parent: personal-projects
 <hr />
 
 <p>
-  Currently working on a Metaphor Refantazio UI recreation built in Unity. <br/><span class="emphasis"><strong>More to come as this project matures</strong></span>.
+  I am currently working on a Metaphor Refantazio UI recreation built in Unity. Below you can explore the various phases of development underwent for this project. <span class="emphasis"><strong>More to come as this project matures</strong></span>.
 </p>
 
+
+
 <div class="framework-projects-card">
-  <div class="section-info">
-    <h3><b>Phase 1: Asset Pipeline Research & POC</b></h3>
-  </div>
-  <div class="compare">
-    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Figma GenAI asset recreation POC - remake" class="before no-lightbox">
-    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-original.png" alt="Figma GenAI asset recreation POC - original" class="after no-lightbox">
-    <div class="label before-label">Original</div>
-    <div class="label after-label">Recreation</div>
-    <div class="handle"></div>
-  </div>
-  <div class="portfolio-info">
-    <p><strong>Premise:</strong> Before diving deep into the development of the project, seeing as I am a programmer first with limited artistic skills, it is necessary to either find a reliable source
-    of the game's assets or find an asset creation pipeline that allows for limited artistic skills to produce the final look of the game. The final pipeline determined feasible with the above mockup as POC is as follows:</p>
-    <ul>
-      <li>Source game ready assets from: <a href="https://www.spriters-resource.com/pc_computer/metaphorrefantazio" target="_blank">spriters-resource.com</a></li>
-      <li>Use GenAI such as Copilot to generate any missing texture assets.</li>
-    </ul>
-    <p><br /><strong>Conclusion:</strong> A mix of community created, game-ready assets supplemented by GenAI will allow me to create the final visual result I want to achieve.</p>
+  <div class="slider">
+    <button class="arrow left">‹</button>
+
+    <div class="slider-viewport not-centered" >
+      <div class="slider-track">
+        <section>
+          <div class="section-info">
+            <h3><b>Phase 1: Asset Pipeline Research & POC</b></h3>
+            <hr />
+          </div>
+          <div class="compare">
+            <img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Figma GenAI asset recreation POC - remake" class="before no-lightbox">
+            <img src="/assets/img/projects/refantazio-menu-remake/refantazio-original.png" alt="Figma GenAI asset recreation POC - original" class="after no-lightbox">
+            <div class="label before-label">Original</div>
+            <div class="label after-label">Recreation</div>
+            <div class="handle"></div>
+          </div>
+          <div class="portfolio-info">
+            <p>
+              <strong>Premise:</strong> Before committing to full production, I needed a reliable way to reproduce the game’s visual identity without relying on traditional artistic workflows. As a developer-first creator, the priority was establishing an asset pipeline that could consistently deliver high‑quality, game‑ready visuals with minimal manual illustration. The proof‑of‑concept above validated the following pipeline:
+            </p>
+
+            <ul>
+              <li>
+                Source existing, game‑ready assets from
+                <a href="https://www.spriters-resource.com/pc_computer/metaphorrefantazio" target="_blank">
+                  spriters-resource.com
+                </a>.
+              </li>
+              <li>
+                Use GenAI tools such as Copilot to generate missing or derivative texture assets.
+              </li>
+            </ul>
+
+            <hr>
+
+            <p>
+              <strong>Conclusion:</strong> A hybrid pipeline, leveraging community‑ripped assets and targeted GenAI generation, provides a scalable, efficient path to achieving the final visual fidelity required for the project.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-info">
+            <h3><b>Phase 2: Menu and HUD Architecture</b></h3>
+            <hr />
+          </div>
+
+          <img src="/assets/img/projects/refantazio-menu-remake/ui-architecure-flowchart.png" alt="UI Architecure Flowchart">
+
+          <div class="portfolio-info">
+            <p><strong>Architectural Priorities:</strong></p>
+            <ul>
+              <li>Ensure all transitions are deterministic, predictable, and fully debuggable.</li>
+              <li>Minimize cross‑system coupling by preventing UI components from referencing external systems, and vice versa.</li>
+              <li>Design a generic, extensible UI framework capable of supporting an open‑ended number of menu screens and HUD contexts.</li>
+            </ul>
+
+            <hr>
+
+            <p><strong>Approach:</strong></p>
+            <ul>
+              <li>
+                Implement a state‑machine–driven workflow for both menu navigation and HUD context management, paired with
+                <a href="https://github.com/Cysharp/UniTask" target="_blank">UniTask</a> to maintain a fully asynchronous, main‑thread‑safe execution model.
+              </li>
+              <li>
+                Leverage C# events to eliminate downstream dependencies and use the Singleton pattern strategically for manager‑level systems, ensuring upward dependencies remain controlled and intentional.
+              </li>
+              <li>
+                Use inheritance to define a unified UI lifecycle without requiring the core system to know anything about individual menu pages or HUD contexts. This keeps the architecture scalable, future‑proof, and resistant to scope creep as production evolves.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+    <button class="arrow right">›</button>
   </div>
 </div>
+
 <hr />
 
 <h2>Track My Progress</h2>

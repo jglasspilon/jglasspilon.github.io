@@ -227,6 +227,10 @@ details .details-body {
   transition: transform 0.4s ease;
 }
 
+.not-centered .slider-track section {
+  justify-content: flex-start; 
+}
+
 .slider-track section {
   display: flex;
   flex-direction: column;
