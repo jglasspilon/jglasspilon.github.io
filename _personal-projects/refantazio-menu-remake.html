@@ -84,7 +84,10 @@ parent: personal-projects
             <hr />
           </div>
 
-          <img src="/assets/img/projects/refantazio-menu-remake/ui-architecure-flowchart.png" alt="UI Architecure Flowchart">
+          <div class="details-image-wrapper">
+            <img src="/assets/img/projects/refantazio-menu-remake/ui-architecure-flowchart.png" alt="UI Architecure Flowchart">
+            <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+          </div>
 
           <div class="portfolio-info">
             <p><strong>Architectural Priorities:</strong></p>
@@ -103,7 +106,7 @@ parent: personal-projects
                 <a href="https://github.com/Cysharp/UniTask" target="_blank">UniTask</a> to maintain a fully asynchronous, main‑thread‑safe execution model.
               </li>
               <li>
-                Leverage C# events to eliminate downstream dependencies and use the Singleton pattern strategically for manager‑level systems, ensuring upward dependencies remain controlled and intentional.
+                Leverage C# events to eliminate downstream dependencies and use the Object Resolver pattern for upwards dependency injection, ensuring upward dependencies remain abstract and intentional.
               </li>
               <li>
                 Use inheritance to define a unified UI lifecycle without requiring the core system to know anything about individual menu pages or HUD contexts. This keeps the architecture scalable, future‑proof, and resistant to scope creep as production evolves.

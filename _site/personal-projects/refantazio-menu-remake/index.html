@@ -35,11 +35,11 @@
 <meta property="og:url" content="http://localhost:4000/personal-projects/refantazio-menu-remake/" />
 <meta property="og:site_name" content="Julian Glass-Pilon" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-05T14:14:55-05:00" />
+<meta property="article:published_time" content="2026-02-09T15:28:02-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Metaphor Refantazio UI Recreation" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-05T14:14:55-05:00","datePublished":"2026-02-05T14:14:55-05:00","description":"Recreation of the award winning Metaphor Refantazio’s UI &amp; Menu. Built in Unity. &lt;hr /&gt;In early stages of development.","headline":"Metaphor Refantazio UI Recreation","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/personal-projects/refantazio-menu-remake/"},"url":"http://localhost:4000/personal-projects/refantazio-menu-remake/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-09T15:28:02-05:00","datePublished":"2026-02-09T15:28:02-05:00","description":"Recreation of the award winning Metaphor Refantazio’s UI &amp; Menu. Built in Unity. &lt;hr /&gt;In early stages of development.","headline":"Metaphor Refantazio UI Recreation","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/personal-projects/refantazio-menu-remake/"},"url":"http://localhost:4000/personal-projects/refantazio-menu-remake/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1202,7 +1202,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <hr />
           </div>
 
-          <a href="/assets/img/projects/refantazio-menu-remake/ui-architecure-flowchart.png" class="popup img-link shimmer"><img src="/assets/img/projects/refantazio-menu-remake/ui-architecure-flowchart.png" alt="UI Architecure Flowchart" loading="lazy"></a>
+          <div class="details-image-wrapper">
+            <a href="/assets/img/projects/refantazio-menu-remake/ui-architecure-flowchart.png" class="popup img-link shimmer"><img src="/assets/img/projects/refantazio-menu-remake/ui-architecure-flowchart.png" alt="UI Architecure Flowchart" loading="lazy"></a>
+            <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+          </div>
 
           <div class="portfolio-info">
             <p><strong>Architectural Priorities:</strong></p>
@@ -1221,7 +1224,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="https://github.com/Cysharp/UniTask" target="_blank">UniTask</a> to maintain a fully asynchronous, main‑thread‑safe execution model.
               </li>
               <li>
-                Leverage C# events to eliminate downstream dependencies and use the Singleton pattern strategically for manager‑level systems, ensuring upward dependencies remain controlled and intentional.
+                Leverage C# events to eliminate downstream dependencies and use the Object Resolver pattern for upwards dependency injection, ensuring upward dependencies remain abstract and intentional.
               </li>
               <li>
                 Use inheritance to define a unified UI lifecycle without requiring the core system to know anything about individual menu pages or HUD contexts. This keeps the architecture scalable, future‑proof, and resistant to scope creep as production evolves.
