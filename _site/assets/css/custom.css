@@ -203,6 +203,7 @@ details .details-body {
   display: flex;
   align-items: center;
   min-width: 0;
+  overflow: visible;
 }
 
 .slider .arrow {
@@ -212,14 +213,28 @@ details .details-body {
   cursor: pointer;
   padding: 10px;
   user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
+.slider .arrow.left {
+  left: -3rem; 
+}
+
+.slider .arrow.right {
+  right: -3rem;
+}
+
+
 .slider-viewport {
-  align-items: center; 
+  align-items: center;
   overflow: hidden;
   width: 100%;
   height: auto;
   position: relative;
+  overflow: hidden;
 }
 
 .slider-track {
