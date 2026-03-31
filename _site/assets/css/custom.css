@@ -109,6 +109,13 @@ details[open] .details-body {
   color: inherit;
 }
 
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 /* ---------- SUMMARY LAYOUT + CUSTOM ARROW ---------- */
 
 summary {

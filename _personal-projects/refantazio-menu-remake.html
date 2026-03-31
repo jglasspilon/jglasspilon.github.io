@@ -29,6 +29,8 @@ parent: personal-projects
 
 <hr />
 
+<video src="/assets/vid/refantazio-ui-demo.webm" autoplay loop muted playsinline controls></video>
+
 <p>
   This project recreates the UI architecture (HUD and Menu) of Metaphor: ReFantazio from the ground up, demonstrating my ability to reverse‑engineer, systematize, and modernize a complex AAA‑style interface, including all fully functional back-end systems required for proper UI functionality. This project showcases production‑grade state management, input handling, and UI extensibility and acts as clear proof of my architectural thinking, technical execution and ability to deliver systems that empower entire teams.
 </p>
@@ -42,139 +44,139 @@ parent: personal-projects
 <h2>My Process</h2>
 <p>Below, I walk through the key phases of this project, highlighting the architectural decisions, problem‑solving strategies, and technical rigor that shaped the final outcome.</p>
 
-  <div class="slider">
-    <button class="arrow left outside">‹</button>
+<div class="slider">
+  <button class="arrow left outside">‹</button>
 
-    <div class="slider-viewport not-centered" >
-      <div class="slider-track">
-        <section>
-          <div class="framework-projects-card">
-            <div class="section-info">
-              <h3><b>Phase 1: Asset Pipeline Research & POC</b></h3>
-              <hr />
-            </div>
-            <div class="compare">
-              <img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Figma GenAI asset recreation POC - remake" class="before no-lightbox">
-              <img src="/assets/img/projects/refantazio-menu-remake/refantazio-original.png" alt="Figma GenAI asset recreation POC - original" class="after no-lightbox">
-              <div class="label before-label">Original</div>
-              <div class="label after-label">Recreation</div>
-              <div class="handle"></div>
-            </div>
-            <div class="portfolio-info">
-              <p>
-                <strong>Premise:</strong> Before committing to full production, I needed a reliable way to reproduce the game’s visual identity without relying on traditional artistic workflows. As a developer-first creator, the priority was establishing an asset pipeline that could consistently deliver high‑quality, game‑ready visuals with minimal manual illustration. The proof‑of‑concept above validated the following pipeline:
-              </p>
-
-              <ul>
-                <li>
-                  Source existing, game‑ready assets from
-                  <a href="https://www.spriters-resource.com/pc_computer/metaphorrefantazio" target="_blank">
-                    spriters-resource.com
-                  </a>.
-                </li>
-                <li>
-                  Use GenAI tools such as Copilot to generate missing or derivative texture assets.
-                </li>
-              </ul>
-
-              <hr>
-
-              <p>
-                <strong>Conclusion:</strong> A hybrid pipeline, leveraging community‑ripped assets and targeted GenAI generation, provides a scalable, efficient path to achieving the final visual fidelity required for the project.
-              </p>
-            </div>
+  <div class="slider-viewport not-centered">
+    <div class="slider-track">
+      <section>
+        <div class="framework-projects-card">
+          <div class="section-info">
+            <h3><b>Phase 1: Asset Pipeline Research & POC</b></h3>
+            <hr />
           </div>
-        </section>
-
-        <section>
-          <div class="framework-projects-card">
-            <div class="section-info">
-              <h3><b>Phase 2: UI Architecture</b></h3>
-              <hr />
-            </div>
-
-            <div class="details-image-wrapper">
-              <img src="/assets/img/projects/refantazio-menu-remake/ui-architecture-flowchart.jpg" alt="UI Architecure Flowchart">
-              <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
-            </div>
-
-            <div class="portfolio-info">
-              <h4>Architectural Priorities:</h4>
-              <ul>
-                <li><strong>Minimize cross‑system coupling</strong> by preventing UI components, widgets, or pages from referencing external systems directly, and by ensuring external systems never reach into UI internals.</li>
-                <li><strong>Ensure all transitions are deterministic, predictable, and fully debuggable</strong>, regardless of whether they originate from gameplay state changes, input events, or UI navigation.</li>
-                <li> <strong>Design a generic, extensible UI framework</strong> capable of supporting an open‑ended number of menu screens, HUD contexts, and nested UI sections without requiring modifications to core systems.</li>
-              </ul>
-
-              <hr>
-
-              <h4>Approach:</h4>
-              <ul>
-                <li>
-                  <strong>Dependency Injection via Object Resolver:</strong> All high‑level services (input, game state, UI) are resolved through a centralized Object Resolver, eliminating downward coupling and keeping all core level systems interface‑driven for flexibility.
-                </li>
-                <li>
-                  <strong>State-Machine-Driven Navigation:</strong> Menu flow and HUD context are governed by explicit state machines, ensuring predictable transitions, clean debugging, and fully asynchronous execution via
-                  <a href="https://github.com/Cysharp/UniTask" target="_blank">UniTask</a>.
-                </li>
-                <li>
-                  <strong>Event-Driven Communication:</strong> State changes propagate through C# events, enabling reactive, decoupled communication where systems broadcast intent without knowing who listens.
-                </li>
-                <li>
-                  <strong>Composable UI Components:</strong> Interfaces like IPageSection and IHUDWidget standardize behavior for nested UI elements, enabling complex compositions without special‑case handling.
-                </li>
-              </ul>
-            </div>
+          <div class="compare">
+            <img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Figma GenAI asset recreation POC - remake" class="before no-lightbox">
+            <img src="/assets/img/projects/refantazio-menu-remake/refantazio-original.png" alt="Figma GenAI asset recreation POC - original" class="after no-lightbox">
+            <div class="label before-label">Original</div>
+            <div class="label after-label">Recreation</div>
+            <div class="handle"></div>
           </div>
-        </section>
+          <div class="portfolio-info">
+            <p>
+              <strong>Premise:</strong> Before committing to full production, I needed a reliable way to reproduce the game’s visual identity without relying on traditional artistic workflows. As a developer-first creator, the priority was establishing an asset pipeline that could consistently deliver high‑quality, game‑ready visuals with minimal manual illustration. The proof‑of‑concept above validated the following pipeline:
+            </p>
 
-        <section>
-          <div class="framework-projects-card">
-            <div class="section-info">
-              <h3><b>Phase 3: Data Architecture</b></h3>
-              <hr />
-            </div>
+            <ul>
+              <li>
+                Source existing, game‑ready assets from
+                <a href="https://www.spriters-resource.com/pc_computer/metaphorrefantazio" target="_blank">
+                  spriters-resource.com
+                </a>.
+              </li>
+              <li>
+                Use GenAI tools such as Copilot to generate missing or derivative texture assets.
+              </li>
+            </ul>
 
-            <div class="details-image-wrapper">
-              <img src="/assets/img/projects/refantazio-menu-remake/data-architecture-flowchart.jpg" alt="UI Architecure Flowchart">
-              <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
-            </div>
+            <hr>
 
-            <div class="portfolio-info">
-              <h4>Architectural Priorities:</h4>
-              <ul>
-                <li><strong>Establish a deterministic, fully debuggable</strong> data pipeline where all runtime values originate from validated definitions.</li>
-                <li><strong>Maintain strict separation</strong>between authoring, runtime data, and UI layers, ensuring no cross‑system coupling or hidden dependencies.</li>
-                <li><strong>Provide reactive, event‑driven runtime models</strong> that expose data changes cleanly and predictably to any system that needs them.</li>
-                <li><strong>Enable a generic, extensible UI binding framework</strong> capable of supporting any number of HUD elements, menu screens, or contextual UI states without modifying core systems.</li>
-                <li><strong>Empower designers</strong> with a safe, scalable content‑creation workflow that supports an open‑ended number of data types (characters, items, skills, archetypes, etc.) without requiring further engineering intervention.</li>
-              </ul>
-
-              <hr>
-
-              <h4>Approach:</h4>
-              <ul>
-                <li>
-                  <strong>ScriptableObject‑Driven Authoring:</strong> Gameplay data is authored as ScriptableObject templates, giving designers a code‑free workflow while ensuring validated, deterministic runtime instances.
-                </li>
-                <li>
-                  <strong> ObservableProperty Runtime Model:</strong> A custom ObservableProperty&lt;T&gt; class provides individual type‑safe values and built-in change notification using events. The transmission of these are standardized through the IPropertyProvider implementation for a clean reactive data layer.
-                </li>
-                <li>
-                  <strong>Generic Property Binding:</strong> A designer‑facing PropertyBinder component lets any UI element bind to any designer specified observable property with no extra code, done completely through the editor, enabling a fully reactive UI pipeline that scales effortlessly.
-                </li>
-                <li>
-                  <strong>Composable UI Components:</strong> Interfaces like IPageSection and IHUDWidget standardize behavior for nested UI elements, enabling complex compositions without special‑case handling.
-                </li>
-              </ul>
-            </div>
+            <p>
+              <strong>Conclusion:</strong> A hybrid pipeline, leveraging community‑ripped assets and targeted GenAI generation, provides a scalable, efficient path to achieving the final visual fidelity required for the project.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      <section>
+        <div class="framework-projects-card">
+          <div class="section-info">
+            <h3><b>Phase 2: UI Architecture</b></h3>
+            <hr />
+          </div>
+
+          <div class="details-image-wrapper">
+            <img src="/assets/img/projects/refantazio-menu-remake/ui-architecture-flowchart.jpg" alt="UI Architecure Flowchart">
+            <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+          </div>
+
+          <div class="portfolio-info">
+            <h4>Architectural Priorities:</h4>
+            <ul>
+              <li><strong>Minimize cross‑system coupling</strong> by preventing UI components, widgets, or pages from referencing external systems directly, and by ensuring external systems never reach into UI internals.</li>
+              <li><strong>Ensure all transitions are deterministic, predictable, and fully debuggable</strong>, regardless of whether they originate from gameplay state changes, input events, or UI navigation.</li>
+              <li> <strong>Design a generic, extensible UI framework</strong> capable of supporting an open‑ended number of menu screens, HUD contexts, and nested UI sections without requiring modifications to core systems.</li>
+            </ul>
+
+            <hr>
+
+            <h4>Approach:</h4>
+            <ul>
+              <li>
+                <strong>Dependency Injection via Object Resolver:</strong> All high‑level services are resolved through a centralized Object Resolver, eliminating downward coupling and keeping all core level systems interface‑driven for flexibility.
+              </li>
+              <li>
+                <strong>State-Machine-Driven Navigation:</strong> Menu flow and HUD context are governed by explicit state machines, ensuring predictable transitions, clean debugging, and fully asynchronous execution via
+                <a href="https://github.com/Cysharp/UniTask" target="_blank">UniTask</a>.
+              </li>
+              <li>
+                <strong>Event-Driven Communication:</strong> State changes propagate through C# events, enabling reactive, decoupled communication where systems broadcast intent without knowing who listens.
+              </li>
+              <li>
+                <strong>Composable UI Components:</strong> Interfaces like IPageSection and IHUDWidget standardize behavior for nested UI elements, enabling complex compositions without special‑case handling.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="framework-projects-card">
+          <div class="section-info">
+            <h3><b>Phase 3: Data Architecture</b></h3>
+            <hr />
+          </div>
+
+          <div class="details-image-wrapper">
+            <img src="/assets/img/projects/refantazio-menu-remake/data-architecture-flowchart.jpg" alt="UI Architecure Flowchart">
+            <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+          </div>
+
+          <div class="portfolio-info">
+            <h4>Architectural Priorities:</h4>
+            <ul>
+              <li><strong>Establish a deterministic, fully debuggable</strong> data pipeline where all runtime values originate from validated definitions.</li>
+              <li><strong>Maintain strict separation</strong>between authoring, runtime data, and UI layers, ensuring no cross‑system coupling or hidden dependencies.</li>
+              <li><strong>Provide reactive, event‑driven runtime models</strong> that expose data changes cleanly and predictably to any system that needs them.</li>
+              <li><strong>Enable a generic, extensible UI binding framework</strong> capable of supporting any number of HUD elements, menu screens, or contextual UI states without modifying core systems.</li>
+              <li><strong>Empower designers</strong> with a safe, scalable content‑creation workflow that supports an open‑ended number of data types (characters, items, skills, archetypes, etc.) without requiring further engineering intervention.</li>
+            </ul>
+
+            <hr>
+
+            <h4>Approach:</h4>
+            <ul>
+              <li>
+                <strong>ScriptableObject‑Driven Authoring:</strong> Gameplay data is authored as ScriptableObject templates, giving designers a code‑free workflow while ensuring validated, deterministic runtime instances.
+              </li>
+              <li>
+                <strong> ObservableProperty Runtime Model:</strong> A custom ObservableProperty&lt;T&gt; class provides individual type‑safe values and built-in change notification using events. The transmission of these are standardized through the IPropertyProvider implementation for a clean reactive data layer.
+              </li>
+              <li>
+                <strong>Generic Property Binding:</strong> A designer‑facing PropertyBinder component lets any UI element bind to any designer specified observable property with no extra code, done completely through the editor, enabling a fully reactive UI pipeline that scales effortlessly.
+              </li>
+              <li>
+                <strong>Composable UI Components:</strong> Interfaces like IPageSection and IHUDWidget standardize behavior for nested UI elements, enabling complex compositions without special‑case handling.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
     </div>
-    <button class="arrow right outside">›</button>
   </div>
+  <button class="arrow right outside">›</button>
+</div>
 
 <script>
   const compare = document.querySelector('.compare');
