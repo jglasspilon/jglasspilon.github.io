@@ -212,18 +212,22 @@ details .details-body {
   font-size: 4rem;
   cursor: pointer;
   padding: 10px;
-  user-select: none;
+  user-select: none; 
+}
+
+.slider .arrow.left.outside {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  left: -3rem;
 }
 
-.slider .arrow.left {
-  left: -3rem; 
-}
-
-.slider .arrow.right {
+.slider .arrow.right.outside {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
   right: -3rem;
 }
 
