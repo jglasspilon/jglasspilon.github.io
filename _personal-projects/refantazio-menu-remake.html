@@ -47,7 +47,7 @@ parent: personal-projects
   <details>
     <summary class="details-content">
       <div class="summary-text">
-        <span class="details-title">Phase 1: Asset Pipeline Research & POC</span>
+        <span class="details-title">Phase 1: Asset Pipeline Research & Feasibility Study</span>
       </div>
     </summary>
     <div class="details-body">
@@ -59,13 +59,14 @@ parent: personal-projects
         <div class="handle"></div>
       </div>
       <div class="portfolio-info">
-        <p align="center"><i>Slider the handle above to compare the original game output with my recreation POC output.</i></p>
+        <p align="center"><i>Slide the handle above to compare the original game output with my recreation POC output.</i></p>
+
         <hr>
+
         <h4><strong>Premise</strong></h4>
         <p>
           Before committing to full production, I needed a reliable way to reproduce the game’s visual identity without relying on traditional artistic workflows. As a developer-first creator, the priority was establishing an asset pipeline that could consistently deliver high‑quality, game‑ready visuals with minimal manual illustration. The proof‑of‑concept above validated the following pipeline:
         </p>
-
         <ul>
           <li>
             Source existing, game‑ready assets from
@@ -101,7 +102,6 @@ parent: personal-projects
         <img src="/assets/img/projects/refantazio-menu-remake/ui-architecture-flowchart.jpg" alt="UI Architecure Flowchart">
         <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
       </div>
-
       <div class="portfolio-info">
         <p align="center"><i>Layered UI architecture showing how gameplay state, input, dependency injection, and UI systems interact through clean separation of responsibilities and event‑driven communication.</i></p>
         <hr />
@@ -115,31 +115,6 @@ parent: personal-projects
 
         <h5>3. Build a generic, extensible UI framework</h5>
         <p><strong>Approach:</strong> Use composable UI abstraction (PageSection, HUDWidget) and event‑driven communication to support unlimited screens and nested UI structures without modifying core systems.</p>
-
-
-        <!--<h4><strong>Architectural Priorities:</strong></h4>
-
-    <p><strong>Minimize cross‑system coupling</strong> by preventing UI components, widgets, or pages from referencing external systems directly, and by ensuring external systems never reach into UI internals.</p>
-    <p><strong>Ensure all transitions are deterministic, predictable, and fully debuggable</strong>, regardless of whether they originate from gameplay state changes, input events, or UI navigation.</p>
-    <p> <strong>Design a generic, extensible UI framework</strong> capable of supporting an open‑ended number of menu screens, HUD contexts, and nested UI sections without requiring modifications to core systems.</p>
-
-
-  <hr>
-
-  <h4><strong>Approach:</strong></h4>
-    <p>
-      <strong>Dependency Injection via Object Resolver:</strong> All high‑level services are resolved through a centralized Object Resolver, eliminating downward coupling and keeping all core level systems interface‑driven for flexibility.
-    </p>
-    <p>
-      <strong>State-Machine-Driven Navigation:</strong> Menu flow and HUD context are governed by explicit state machines, ensuring predictable transitions, clean debugging, and fully asynchronous execution via
-      <a href="https://github.com/Cysharp/UniTask" target="_blank">UniTask</a>.
-    </p>
-    <p>
-      <strong>Event-Driven Communication:</strong> State changes propagate through C# events, enabling reactive, decoupled communication where systems broadcast intent without knowing who listens.
-    </p>
-    <p>
-      <strong>Composable UI Components:</strong> Interfaces like IPageSection and IHUDWidget standardize behavior for nested UI elements, enabling complex compositions without special‑case handling.
-    </p>-->
       </div>
     </div>
   </details>
@@ -158,6 +133,7 @@ parent: personal-projects
         <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
       </div>
       <div class="portfolio-info">
+        <p align="center"><i>A structured data‑flow architecture showing how authored ScriptableObjects generate runtime models that expose observable properties for UI binders to reactively display and update.</i></p>
 
         <h4><strong>Architectural Priorities & Approach</strong></h4>
 
@@ -175,33 +151,58 @@ parent: personal-projects
 
         <h5>5. Empower designers with a scalable, code‑free content workflow</h5>
         <p><strong>Approach:</strong> ScriptableObject templates and standardized property providers allow designers and integrators to work with established data types—characters, items, skills, archetypes, etc, without engineering intervention. The system remains safe, extensible, and future‑proof.</p>
+      </div>
+    </div>
+  </details>
+</div>
 
-        <!--<h4>Architectural Priorities:</h4>
-  <ul>
-    <li><strong>Establish a deterministic, fully debuggable</strong> data pipeline where all runtime values originate from validated definitions.</li>
-    <li><strong>Maintain strict separation</strong>between authoring, runtime data, and UI layers, ensuring no cross‑system coupling or hidden dependencies.</li>
-    <li><strong>Provide reactive, event‑driven runtime models</strong> that expose data changes cleanly and predictably to any system that needs them.</li>
-    <li><strong>Enable a generic, extensible UI binding framework</strong> capable of supporting any number of HUD elements, menu screens, or contextual UI states without modifying core systems.</li>
-    <li><strong>Empower designers</strong> with a safe, scalable content‑creation workflow that supports an open‑ended number of data types (characters, items, skills, archetypes, etc.) without requiring further engineering intervention.</li>
-  </ul>
+<div class="portfolio-card">
+  <details>
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Phase 4: Integration</span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <div class="portfolio-info">
+        <p>With the core architecture in place, I moved on to building the actual HUD elements, menu pages, and their nested sections. To standardize this process, I developed a set of tools that streamline the creation and configuration of these UI elements.</p>
+        <h4><strong>Key Integration Components</strong></h4>
 
-  <hr>
+        <p>
+          <a href="https://github.com/jglasspilon/Refantazio-Menu-Remake/blob/main/Assets/Code/Scripts/Utilities/Pooling/AssetPoolManager.cs" target="_blank">Asset Pool Manager</a>: A centralized pooling system designed to efficiently manage reusable game objects in Unity. It automatically loads all PoolableObject prefabs from configured Resources paths, initializes dedicated pools for each type, and ensures they always maintain a minimum spare capacity. The manager supports single and batch retrieval, type‑safe or reflection‑based access, and clean return‑to‑pool workflows.
+        </p>
+        <p>
+          By reusing inactive instances instead of instantiating and destroying objects at runtime, this system significantly reduces allocation spikes, improves frame stability, and eliminates common pooling pitfalls such as missing pools, inconsistent parenting, or improperly reset objects. Its type‑driven architecture ensures predictable behavior, easy extensibility, and is boilerplate-free for developers integrating new pooled assets.
+        </p>
+        <hr />
+        <p>
+          <a href="https://github.com/jglasspilon/Refantazio-Menu-Remake/blob/main/Assets/Code/Scripts/UI/Containers/Generic/UIObjectGeneraterFromPool.cs" target="_blank">UI Object Generator From Pool</a>: an abstract, data‑driven UI list builder that uses an AssetPoolManager to generate interface elements from pooled objects. It clears old content, pulls and initializes new items from data, and tracks all active UI instances for retrieval or removal. The class also provides a generation event and ensures returned objects are fully reset and recycled.
+        </p>
+        <p>
+          Its generic, data‑driven design allows any poolable UI element type to be generated consistently without custom boilerplate, while maintaining clean lifecycle management and predictable behavior across different UI systems.
+        </p>
+        <hr />
+        <p>
+          <a href="https://github.com/jglasspilon/Refantazio-Menu-Remake/blob/main/Assets/Code/Scripts/UI/Containers/Generic/UIObjectSelecter.cs" target="_blank">UI Object Selecter</a>: an abstract controller for cycling and managing selectable UI elements. It hooks into a PageSection to handle navigation events, supports reversed cycling, and tracks the current selection and index. The class exposes selection‑change events, updates its selectable list, and provides utilities for selecting specific items, selecting all, or applying predicates that control which elements are eligible.
+        </p>
+        <p>
+          Its generic, interface‑based structure delivers consistent, centralized selection behavior across UI types with minimal custom logic.
+        </p>
+        <hr />
+        <p>
+          <a href="https://github.com/jglasspilon/Refantazio-Menu-Remake/blob/main/Assets/Code/Scripts/UI/Containers/Generic/UIListSelectionSection.cs" target="_blank">UI List Selection Section</a>: an abstract PageSection that links pooled UI generation with selection handling. It resolves its data model and asset pool at runtime, initializes a UIObjectGeneraterFromPool, and keeps a UIObjectSelecter synchronized with generated items. The section can remove the current selection and delegates UI creation to an overridable method.
+        </p>
+        <p>
+          It centralizes list creation, selection state, and dependency resolution, making dynamic, data‑driven UI sections easier to build and maintain.
+        </p>
+        <hr />
+        <p>
+          <a href="https://github.com/jglasspilon/Refantazio-Menu-Remake/blob/main/Assets/Code/Scripts/UI/Containers/DataBinders/PropertyBinder.cs" target="_blank">Property Binder</a>: an abstract component that binds runtime data to UI or gameplay elements through an ObservableProperty<T>. It resolves the provider and property, subscribes to change events via minimal reflection, applies the initial value, and forwards updates to the most specific Apply overload implemented by subclasses. The binder also handles clean unbinding to avoid stale event hooks. A custom editor was created for this tool to be easily usable by designers and integrators for plug and play data binding.
+        </p>
+        <p>
+          Its dynamic, type‑safe binding approach removes boilerplate and supports flexible, reactive systems that adapt cleanly to changing data.
+        </p>
 
-  <h4>Approach:</h4>
-  <ul>
-    <li>
-      <strong>ScriptableObject‑Driven Authoring:</strong> Gameplay data is authored as ScriptableObject templates, giving designers a code‑free workflow while ensuring validated, deterministic runtime instances.
-    </li>
-    <li>
-      <strong> ObservableProperty Runtime Model:</strong> A custom ObservableProperty&lt;T&gt; class provides individual type‑safe values and built-in change notification using events. The transmission of these are standardized through the IPropertyProvider implementation for a clean reactive data layer.
-    </li>
-    <li>
-      <strong>Generic Property Binding:</strong> A designer‑facing PropertyBinder component lets any UI element bind to any designer specified observable property with no extra code, done completely through the editor, enabling a fully reactive UI pipeline that scales effortlessly.
-    </li>
-    <li>
-      <strong>Composable UI Components:</strong> Interfaces like IPageSection and IHUDWidget standardize behavior for nested UI elements, enabling complex compositions without special‑case handling.
-    </li>
-  </ul>-->
       </div>
     </div>
   </details>
