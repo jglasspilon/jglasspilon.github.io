@@ -89,7 +89,7 @@ details .details-body {
 }
 
 details[open] .details-body {
-  max-height: 2000px;
+  max-height: 9999px;
   opacity: 1;
 }
 
