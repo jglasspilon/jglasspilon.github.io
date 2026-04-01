@@ -46,6 +46,10 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.portfolio-card.expando {
+  overflow: visible;
+}
+
 .portfolio-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--card-shadow-hover);
